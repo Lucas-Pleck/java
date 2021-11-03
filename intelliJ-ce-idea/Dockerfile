@@ -2,13 +2,6 @@ FROM mvpjava/intellij-ce-2020.3-base-image:ubuntu-openjdk11
 
 MAINTAINER Andy Luis "MVP Java - mvpjava.com, triomni-it.com"
 
-# Switch to non-root user 
-# The host machine $USER is used, past in via --build-arg 
-# in order to persist data across invocations of container.
-# Default user is "mvpjava" if ever no --build-arg is provided.
-# However that won't persist the data on host machine after 
-# container is terminated so for best experience use the run.sh
-# script that does this for you.
 ARG USER=mvpjava      
 
 ENV HOME=/home/${USER}
@@ -24,13 +17,8 @@ RUN apt-get install sudo -y && \
     echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USER} && \
     chmod 0440 /etc/sudoers.d/${USER} 
 
-##########################################################################
-# Need to create IJ directories here and then set persmissions for end
-# user or else when bind mounting, they will always be owned by root
-##########################################################################
-
-RUN mkdir -p ${HOME}/.config/JetBrains/IdeaIC2020.3 &&     \
-    mkdir -p ${HOME}/.local/share/JetBrains/IdeaIC2020.3 &&   \
+RUN mkdir -p ${HOME}/.config/JetBrains/java_dev_data &&     \
+    mkdir -p ${HOME}/.local/share/JetBrains/java_dev_data &&   \
     mkdir -p ${HOME}/.local/share/JetBrains/consentOptions &&   \
     mkdir -p ${HOME}/.java/.userPrefs && \
     chown -R ${USER}:${USER} ${HOME} &&  \

@@ -16,7 +16,7 @@ So IntelliJ plugins and preferences are preserved as well as maven $HOME/.m2 dir
 so you don't have to keep downloading the same artifacts.
 
 You can share your source code with the IntelliJ. Just place you source code in (default location) ..
-${HOME}/IdeaIC2020.3/IdeaProjects
+${HOME}/java_dev_data/IdeaProjects
 
 
 # How to start Docker Container
