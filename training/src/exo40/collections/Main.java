@@ -131,11 +131,11 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         String lieu, date, motif;
-        System.out.println("Entrer le lieu de la personne a modifier svp : ");
+        System.out.println("Entrer le lieu du rdv svp : ");
         lieu=sc.next();
-        System.out.println("Entrer la date de la personne a modifier svp : ");
+        System.out.println("Entrer la date du rdv svp : ");
         date=sc.next();
-        System.out.println("Entrer le motif de la personne a modifier svp : ");
+        System.out.println("Entrer le motif du rdv svp : ");
         motif=sc.next();
         try{
             agenda.addRdv(personneToAddRdv, new RendezVous(lieu,date,motif));
