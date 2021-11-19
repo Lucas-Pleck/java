@@ -1,5 +1,8 @@
 package exo40.collections;
 
+import exo42.Menu.Menu;
+import exo42.Menu.MenuItem;
+
 import java.util.*;
 
 public class Main {
@@ -11,17 +14,22 @@ public class Main {
 
         do {
             try{
-                System.out.println("Bienvenu dans l'agenda");
-                System.out.println("Entrez une touche : ");
-                System.out.println("0/ Voir l'agenda");
-                System.out.println("1/ Ajouter une personne dans l'agenda");
-                System.out.println("2/ Effacer une personne");
-                System.out.println("3/ Modifier adresse et téléphone d'une personne");
-                System.out.println("4/ Afficher l'Agenda trié par prénom");
-                System.out.println("5/ Afficher l'Agenda trié par nom");
-                System.out.println("6/ Ajouter un rdv a une personne");
-                System.out.println("9/ Exit");
-                choice=sc.nextInt();
+                ArrayList<MenuItem> items = new ArrayList<MenuItem>(
+                        Arrays.asList(
+                                            new MenuItem("0/ Voir l'agenda","info1"),
+                                            new MenuItem("1/ Ajouter une personne dans l'agenda","info2"),
+                                            new MenuItem("2/ Effacer une personne","info3"),
+                                            new MenuItem("3/ Modifier adresse et téléphone d'une personne","info4"),
+                                            new MenuItem("4/ Afficher l'Agenda trié par prénom","info5"),
+                                            new MenuItem("5/ Afficher l'Agenda trié par nom","info6"),
+                                            new MenuItem("6/ Ajouter un rdv a une personne","info7"),
+                                            new MenuItem("9/ Exit","info8")
+                        )
+                );
+
+
+                Menu menu = new Menu(items,"Bienvenu dans l'agenda \n Entrez une touche : ");
+                choice=items.indexOf(menu.useMenu());
             }
             catch (InputMismatchException ex){
                 System.out.println("Entrez un nombre valide svp");

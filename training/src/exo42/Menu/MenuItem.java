@@ -1,4 +1,4 @@
-package exo42;
+package exo42.Menu;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,12 @@ public class MenuItem {
         this.label = label;
         this.moreInfo = moreInfo;
         this.menuItems = menuItems;
+    }
+
+    public MenuItem(String label, String info1) {
+        this.label = label;
+        this.moreInfo = info1;
+        this.menuItems=new ArrayList<MenuItem>();
     }
 
     public ArrayList<MenuItem> getMenuItems() {

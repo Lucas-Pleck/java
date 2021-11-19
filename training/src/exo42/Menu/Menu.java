@@ -1,6 +1,7 @@
-package exo42;
+package exo42.Menu;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Menu {
     }
 
     public MenuItem useMenu() {
-        MenuItem currentMenu = diplaySelectMenu(menuItems, title);
+       MenuItem currentMenu = diplaySelectMenu(menuItems, title);
        if(currentMenu.getMenuItems().size()>0) {
            do {
                currentMenu = Menu.diplaySelectMenu(currentMenu.getMenuItems(), currentMenu.getLabel());
@@ -56,6 +57,24 @@ public class Menu {
     public ArrayList<MenuItem> getMenuItem() {
         return menuItems;
     }
+
+    public void sortOnLabel() {
+        sortOnSubLabel(menuItems);
+    }
+
+    private void sortOnSubLabel(ArrayList<MenuItem> currentMenu) {
+        currentMenu.sort(new LabelComparator());
+        for (MenuItem menuItem:currentMenu){
+            if(menuItem.getMenuItems().size()>0){
+                menuItem.getMenuItems().sort(new LabelComparator());
+                sortOnSubLabel(menuItem.getMenuItems());
+            }
+        }
+
+
+    }
+
+
 
 
 

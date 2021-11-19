@@ -1,8 +1,10 @@
 package exo41.Zoo;
 
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.function.IntFunction;
 
-public abstract class Animals {
+public abstract class Animals extends ArrayList<Animals> {
     private String name;
     private Integer weight;
     private static String sound="";
@@ -37,6 +39,11 @@ public abstract class Animals {
 
     @Override
     public abstract String toString();
+
+    @Override
+    public <T> T[] toArray(IntFunction<T[]> generator) {
+        return super.toArray(generator);
+    }
 
     @Override
     public boolean equals(Object o) {
