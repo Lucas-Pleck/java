@@ -83,7 +83,6 @@ public class Zoo{
         return new Elephants(elephantName,elephantWeight,tusks);
     }
 
-
     public ArrayList<Animals> SortOnWeight(Zoo zoo){
         ArrayList<Animals> animals = new ArrayList<Animals>(this.animals);
         animals.sort(new WeightComparator());
