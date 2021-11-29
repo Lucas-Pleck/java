@@ -1,9 +1,6 @@
 package gamePendu;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -41,7 +38,7 @@ public class Game implements Serializable {
         wordToFind = dico.getRandomWord().toLowerCase(Locale.ROOT);
         System.out.println("le mot à chercher contient " + wordToFind.length() + " charactères");
         hiddenword();
-        usedLetters=new ArrayList<>();
+        usedLetters = new ArrayList<>();
     }
 
     public void hiddenword() {
@@ -56,7 +53,7 @@ public class Game implements Serializable {
             System.out.println("Vous ne pouvez rentrer qu'une lettre à la fois!");
         } else {
             usedLetters.add(letter);
-            System.out.println("Lettres déjà jouées :"+usedLetters);
+            System.out.println("Lettres déjà jouées :" + usedLetters);
             char l = letter.charAt(0);
             if (wordToFind.contains(letter)) {
                 String temp = "";
@@ -80,21 +77,41 @@ public class Game implements Serializable {
         }
     }
 
-    public  void save(){
-        ObjectOutputStream out=null;
+    public void save() {
+        ObjectOutputStream out = null;
         try {
-            out =new ObjectOutputStream(new FileOutputStream("gameSave.dat"));
+            out = new ObjectOutputStream(new FileOutputStream("gameSave.dat"));
+            out.writeObject(this);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 out.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
+
+    public static Game loadGame() {
+        ObjectInputStream in = null;
+        Game savedGame = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream("gameSave.dat"));
+            savedGame = (Game) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return savedGame;
+    }
+
 
     public boolean isFinished() {
         return life <= 0;

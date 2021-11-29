@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Dico {
+public class Dico implements Serializable {
     private List<String> dico = new ArrayList<>();
     private String pathDico;
 
@@ -54,6 +54,5 @@ public class Dico {
     public void setPathDico(String pathDico) {
         this.pathDico = pathDico;
     }
-
 }
 
