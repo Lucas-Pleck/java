@@ -29,6 +29,8 @@ public class Main {
         List<Batiment> batimentSansAppartDePlusDe5000Euros = batimentList.stream().filter(b -> !b.getType().equals(TypeBatiment.APPARTEMENT) || b.getPrix() < 50000).toList();
         System.out.println(batimentSansAppartDePlusDe5000Euros);
 
+
+
         System.out.println(batimentList.stream().mapToInt(Batiment::getPrix).average().orElse(0));
 
         batimentList.stream().filter(b -> b.getType().equals(TypeBatiment.MAISON)).filter(b -> b.getSurface() > 400).forEach(b -> b.setPrix((int) (b.getPrix() * 1.5)));
