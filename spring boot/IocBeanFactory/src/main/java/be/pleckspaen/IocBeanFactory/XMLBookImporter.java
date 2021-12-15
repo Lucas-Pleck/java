@@ -1,8 +1,5 @@
 package be.pleckspaen.IocBeanFactory;
 
-
-
-
 public class XMLBookImporter implements IBookImporter{
 
     @Override

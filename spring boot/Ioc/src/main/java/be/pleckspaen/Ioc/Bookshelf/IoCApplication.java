@@ -4,6 +4,7 @@ package be.pleckspaen.Ioc.Bookshelf;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,12 +18,12 @@ public class IoCApplication implements CommandLineRunner {
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
     }
-
     @Autowired
     private BookShelf bookShelf;
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println("Bean Memory Address in Main : "+ bookShelf);
         bookShelf.importAndRead();
     }
 }
