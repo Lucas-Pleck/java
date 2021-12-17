@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700;900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h3>Find Animal</h3>
+            <menu>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#serv">Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testi">Testimonial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#subscr">Subscribe</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </menu>
+        </nav>
+        <div class="hero-banner" id="hero">
+            <h2>
+                Sunt In Culpa Officia Deserum
+            </h2>
+            <h5>
+                Lorem ipsum dolor sit amet consectetur
+            </h5>
+            <div class="hero-separator"></div>
+        </div>
+    </header>
+    <section class="services" id="serv">
+        <button onclick="getAnnouncementList()">Check Announcement</button>
+    </section>
+
+    <section>
+        <div id="announcementList" ></div>
+    </section>
+
+    <template id="announcementTemplate">
+        <div class="announcementWrapper">
+            <p class="refAnnouncementDate"></p>
+            <p class="refAnnouncementType"></p>
+            <p class="refAnimalType"></p>
+            <p class="refAnimalBreed"></p>
+            <p class="refAnimalColor"></p>
+        </div>
+    </template>
+
+    <section>
+        <div id="announcementForm" >
+
+        </div>
+    </section>
+
+    <footer>
+        <img src="img/logo_dark.png" alt="">
+        <p>
+            Copyright Lucas Pleckspaen 2021 - technocité DevOps Training
+        </p>
+        <ul class="menu-footer">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#serv">Services</a></li>
+            <li><a href="#testi">Testimonial</a></li>
+            <li><a href="#subscr">Subscribe</a></li>
+        </ul>
+    </footer>
+</section>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
